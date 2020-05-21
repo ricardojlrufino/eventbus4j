@@ -19,8 +19,7 @@ public class DebounceEventDispatcherTest {
 
   @Before
   public void setup() {
-    EventBus.configDispatcher(UIEvents.BOARD_CHANGE,
-                                new DebounceEventDispatcher(1000));
+    EventBus.configDispatcher(UIEvents.BOARD_CHANGE, new DebounceEventDispatcher(1000));
   }
   
   

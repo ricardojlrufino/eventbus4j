@@ -25,12 +25,13 @@ public class EventBusTest {
     
     @Test
     public void testRegisterAndUnregister() {
-      EventHandler<EventBoardChange> handler = EventBus.register(junit.eventbus.UIEvents.BOARD_CHANGE, event -> {
-          System.out.println("nothong");
+        
+      EventHandler<EventBoardChange> handler = EventBus.register(UIEvents.BOARD_CHANGE, event -> {
+          System.out.println("Hi !!");
       });
       
       
-      Set<EventHandler<EventBoardChange>> handlers = EventBus.getHandlers(UIEvents.BOARD_CHANGE);
+      Set<EventHandler> handlers = EventBus.getHandlers(UIEvents.BOARD_CHANGE);
       
       assertEquals(1, handlers.size());
       
@@ -50,7 +51,7 @@ public class EventBusTest {
             System.out.println("nothong");
         });
 
-        Set<EventHandler<EventBoardChange>> handlers = EventBus.getHandlers(UIEvents.BOARD_CHANGE);
+        Set<EventHandler> handlers = EventBus.getHandlers(UIEvents.BOARD_CHANGE);
 
         assertEquals(1, handlers.size());
 
@@ -69,7 +70,7 @@ public class EventBusTest {
             System.out.println("nothong");
         });
 
-        Set<EventHandler<EventBoardChange>> handlers = EventBus.getHandlers(UIEvents.BOARD_CHANGE);
+        Set<EventHandler> handlers = EventBus.getHandlers(UIEvents.BOARD_CHANGE);
 
         assertEquals(1, handlers.size());
 

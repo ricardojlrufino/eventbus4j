@@ -249,10 +249,9 @@ public class EventBus {
      * @param eventType
      * @return unmodifiableSet
      */
-    public static <E extends EventMessage> Set<EventHandler<E>> getHandlers(Class<E> eventType) {
+    public static  Set<EventHandler> getHandlers(Class<? extends EventMessage> eventType) {
         return Collections.unmodifiableSet((get().handlers.get(eventType)));
         
     }
   
-
 }

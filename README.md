@@ -8,7 +8,7 @@ Simple Event-Driven Java Library
 Event Registration:
 
 ```java
-EventHandler<EventBoardChange> handler = EventBus.register(UIEvents.BOARD_CHANGE, event ->{
+EventHandler<EventBoardChange> handler = EventBus.register(this, UIEvents.BOARD_CHANGE, event ->{
 	System.out.println("Hi !!");
 });
 ```
@@ -34,6 +34,17 @@ public interface UIEvents {
   }
 }
 ```
+
+Unregister:
+
+```
+@Override
+public void onClose() {
+  EventBus.unregisterHandlers(this);
+}
+```
+
+>  Note: **'this'**, can be any object, it is called Holder, and serves to unregister listeners. This is important to **avoid memory leaks**
 
 
 
